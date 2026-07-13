@@ -1,0 +1,89 @@
+.order {
+    width: 920px;
+    margin: 20px auto;
+    margin-top: 50px;
+}
+
+.tips {
+    width: 100%;
+    font-size: 14px;
+    margin: 20px 0;
+    line-height: 20px;
+}
+
+.ordertable .item {
+    display: flex;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.ordertable .item label {
+    width: 100px;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 16px;
+    line-height: 24px;
+    background: #F5F5F5;
+    display: flex;
+}
+.ordertable .item label span{
+    align-self: center;
+    width: 100%;
+}
+
+.ordertable .item .conta {
+    flex: 1;
+    text-align: center;
+    padding: 18px 0;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7f7f7f;
+}
+
+.ordertable .item .conta .shopitem {
+
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.ordertable .item .conta .shopitem:last-child{
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.ordertable .item .conta .shopitem .shopImg {
+    display: inline-block;
+    vertical-align: top;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+}
+
+.ordertable .item .conta .shopitem .shopImg img {
+    width: 100%;
+}
+
+.ordertable .item .conta .shopitem .shopMsg {
+    display: inline-block;
+    vertical-align: top;
+
+    height: 80px;
+    margin-left: 20px;
+    line-height: 80px;
+}
+
+.ordertable .item .conta .shopitem .shopMsg .name {
+    width: 320px;
+}
+
+.ordertable .item .conta .shopitem .shopMsg span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 138px;
+    line-height: 1;
+}

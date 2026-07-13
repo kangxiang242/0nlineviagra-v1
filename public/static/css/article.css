@@ -1,0 +1,89 @@
+.box-content {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    margin: 0 auto;
+    width: 1000px;
+    padding-top: 50px;
+}
+
+.question-box .title {
+    /* width: 1000px;
+    margin: 0 auto; */
+}
+
+.question-box .title h1 {
+
+    margin-bottom: 29px;
+    text-align: center;
+}
+
+.question-box .title .brief {
+    font-size: 16px;
+    color: #999999;
+}
+
+.division {
+    margin-top: 19px;
+}
+
+.division .line-1 {
+    width: 94px;
+    display: inline-block;
+	height: 10px;
+	background-color: #F5F5F5;
+}
+
+.division p {
+    color: #905638;
+    font-size: 16px;
+    display: inline-block;
+    width: 66px;
+}
+
+.division .line-2 {
+    width: 1032px;
+	height: 10px;
+	display: inline-block;
+	background-color: #F5F5F5;
+}
+
+.content {
+    margin-top: 5px;
+	padding-bottom: 50px;
+    border-bottom: 1px solid #E6E6E6;
+	font-size: 16px;
+	border-top: 1px solid #E6E6E6;
+	padding-top: 39px;
+}
+
+.other{
+	margin-top: 20px;
+	font-size: 14px;
+	
+}
+
+.other span{
+	color: #E51728;
+	margin-right: 10px;
+	
+}
+
+.other .upper{
+	float:left;
+	width: 300px;
+	text-indent: -3.7em;
+	padding-left: 3.7em;
+	
+}
+
+.other .next{
+	float:right;
+	width: 300px;
+	text-indent: -3.7em;
+	    padding-left: 3.7em;
+}
+
+.other a{
+	
+}

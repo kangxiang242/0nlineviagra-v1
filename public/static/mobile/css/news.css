@@ -1,0 +1,151 @@
+
+.container{
+    padding-bottom: 0;
+}
+.stick{
+    line-height: 2;
+    margin: auto;
+    border-radius: 0.1rem;
+   /* background: rgba(255, 255, 255, .3);*/
+
+
+    overflow: hidden;
+
+    max-width: 768px;
+
+}
+.pill{
+    display: none;
+}
+
+.breadcrumb{
+    margin-top: 0.24rem;
+    margin-left: 0.32rem;
+}
+
+
+
+.vague{
+    width: 7.02rem;
+    margin: 0 auto;
+    background: rgba(102, 102, 102, 0.3);
+
+    background-repeat: repeat;
+    border-radius: 0.3rem;
+    margin-top: 0.34rem;
+
+    backdrop-filter: blur(0.1rem);
+    -webkit-backdrop-filter:blur(0.1rem);
+
+}
+
+.news-main{
+    padding: 0.2rem 0.24rem 0.6rem 0.24rem;
+    position: relative;
+}
+
+.news-box{
+    margin-bottom: 0.5rem;
+}
+
+.news-item{
+    display: flex;
+    margin-top: 0.6rem;
+}
+.news-item:first-child{
+    margin-top: 0;
+}
+.news-item .news-img{
+    float:left;
+    align-self: center;
+}
+
+.news-item .news-img img{
+    width: 2.2rem;
+    border-radius: 0.2rem;
+}
+.news-item .news-desc{
+
+    float:right;
+    color: #fff;
+    margin-left: 0.12rem;
+
+    align-self: center;
+}
+.news-item .words{
+    display: flex;
+    border-bottom: 0.01rem solid #ccc;
+    margin-bottom: 0.24rem;
+    padding-left: 0.14rem;
+    padding-bottom: 0.1rem;
+}
+.news-item .words p{
+    float:left;
+    align-self: center;
+}
+.news-item .words .p1{
+    font-size: 0.32rem;
+}
+.news-item .words .p2{
+    font-size: 0.22rem;
+    color: #ccc;
+    margin-right: 0.2rem;
+}
+
+.title-tips{
+    padding-left: 0.08rem;
+}
+
+.news-title {
+    font-size: 0.3rem;
+    font-weight: 500;
+}
+
+.news-title a{
+    color: #000;
+}
+
+.news-tips{
+    font-size: 0.24rem;
+    color: #999;
+    margin-top: 0.1rem;
+}
+
+.novel{
+    padding-left: 0.24rem;
+    padding-right: 0.24rem;
+    border-bottom: 0.01rem solid #999;
+    margin-top: 0.3rem;
+}
+
+.novel-title{
+    font-size: 0.32rem;
+    color: #fff;
+
+}
+.novel-box{
+    margin-top: 0.2rem;
+}
+.novel-box .novel-item{
+    font-size: 0.26rem;
+    border-bottom: 0.01rem solid #999;
+    margin-bottom: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+.novel-box .novel-item:last-child{
+    border: none;
+    margin-bottom: 0;
+}
+
+.slogan {
+    margin-left: 0.32rem;
+    margin-top: 3rem;
+}
+
+.slogan .p1 {
+    font-size: 0.7rem;
+}
+
+.slogan .p2 {
+    font-size: 0.52rem;
+}

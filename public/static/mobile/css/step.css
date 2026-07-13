@@ -1,0 +1,111 @@
+.steps-main{
+    padding-left: 10px;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+
+
+.step{
+    position: relative;
+    float:left;
+
+}
+
+.step-info .number{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    background: #ccc;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+
+}
+
+.step-info {
+    text-align: center;
+}
+
+.step-info .p1{
+    font-size: 16px;
+}
+
+.step-info .p2{
+    font-size: 14px;
+    color: #ccc;
+}
+
+
+.step .left-line{
+    background-color: #ccc;
+    height: 6px
+}
+
+
+.step-info{
+    position: absolute;
+}
+
+.first-step{
+    width: 150px;
+}
+
+.first-step .step-info{
+    right: -78px;
+    top: -15px;
+}
+
+.first-step .line{
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+
+.two-step{
+    width: 300px;
+    margin-left: 41px;
+}
+
+
+.two-step .step-info{
+    right: -104px;
+    top: -15px;
+}
+
+
+.three-step{
+    width: 488px;
+    margin-left: 41px;
+}
+
+
+.three-step .step-info{
+    top: -15px;
+    left: 264px;
+}
+.three-step .left-line{
+    width: 300px;
+    float:left;
+}
+.three-step .right-line{
+    background-color: #ccc;
+    height: 6px;
+    width:150px;
+    float:right;
+}
+
+
+.three-step .right-line{
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.step-activate .line{
+    background-color: #000;
+}
+
+.step-activate .step-info .number{
+    background-color: #000;
+}

@@ -1,0 +1,114 @@
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.pill{
+    display: none;
+}
+.container{
+    padding: 0.2rem 0.24rem 0.6rem 0.24rem;
+
+}
+
+
+.card{
+    width: 100%;
+
+    border-radius: 0.3rem;
+    margin: 0 auto;
+    margin-top: 0.2rem;
+}
+
+
+
+.card-header{
+
+    margin-bottom: 0.6rem;
+}
+
+.card-header .title{
+    color: #000;
+    font-size: 0.4rem;
+    text-align: center;
+
+}
+
+
+
+.form-item-row{
+    border-bottom: 0.01rem solid #ccc;
+    padding-left: 0.22rem;
+    padding-right: 0.22rem;
+    position: relative;
+}
+
+.input-title{
+    color: #000;
+    font-size: 0.28rem;
+    display: inline-block;
+    position: absolute;
+    left: 0.23rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form-center{
+    display: inline-block;
+    width: 100%;
+
+}
+.form-center input{
+    height: 1rem;
+    background: transparent;
+    border: 0;
+    text-align: right;
+    color: #000;
+    width: 100%;
+    font-size: 0.28rem;
+}
+
+
+
+.textarea-title{
+    color: #000;
+    font-size: 0.28rem;
+}
+
+.textarea-body .form-item-row{
+    border: 0.01rem solid #e6e6e6;
+    border-radius: 0.1rem;
+    margin-top: 0.3rem;
+}
+
+.form-textarea{
+    background: transparent;
+    border: none;
+    height: 1.80rem;
+    padding: 0.16rem 0;
+    width: 100%;
+    color: #000;
+    font-size: 0.28rem;
+    font-family: "Microsoft YaHei";
+}
+
+.form-item-btn-row{
+    margin-top: 0.4rem;
+    border: none;
+}
+
+.form-btn{
+
+    width: 100%;
+    height: 0.8rem;
+    background: #26b44b;
+    border: none;
+    border-radius: 6rem;
+    color: #fff;
+    font-size: 0.3rem;
+    outline: none;
+}
+

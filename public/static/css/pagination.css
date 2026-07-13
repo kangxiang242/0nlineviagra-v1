@@ -1,0 +1,41 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+.pagination li{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    border: 1px solid #BFBFBF;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.pagination li:last-child,.pagination li:first-child{
+    font-size: 30px;
+    line-height: 22px;
+}
+
+.pagination li:first-child{
+    font-size: 30px;
+    line-height: 22px;
+}
+
+.pagination .disabled{
+    color: #ccc;
+}
+
+.pagination .active{
+
+    border: 1px solid #208B3B;
+    color: #208B3B;
+}
+
+.pagination .page-item .page-link{
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+}

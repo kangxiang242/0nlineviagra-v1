@@ -1,0 +1,118 @@
+
+
+.container{
+    padding: 0.2rem 0.24rem 0.6rem 0.24rem;
+}
+
+
+.pill{
+    width: 1.4rem;
+    position: absolute;
+    left: 38%;
+    top: 0.5rem;
+    z-index: 1;
+    animation: pilloading 4s 1s ease infinite;
+}
+@keyframes pilloading {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+    }
+    50% {
+        transform: scale(1) translateY(-0.2rem);
+    }
+}
+
+
+
+.title{
+    color: #000;
+    font-size: 0.4rem;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.division{
+    color: #ccc;
+    font-size: 0.24rem;
+    border-bottom: 0.01rem solid #ccc;
+    padding-bottom: 0.15rem;
+    position: relative;
+    margin-top: 0.3rem;
+}
+
+.division .division-count{
+    float:left;
+}
+
+.division-count p{
+    line-height: 0.3rem;
+}
+
+.division-time{
+
+    position: absolute;
+    right: 0;
+    bottom: 0.05rem;
+}
+
+.new-content{
+    color: #000;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+.new-content span{
+    font-family: "Microsoft YaHei"!important;
+    font-weight: normal;
+}
+.new-content p{
+
+    font-size: 0.3rem!important;
+    line-height: 0.4rem;
+}
+
+.new-content img{
+    width: 100%;
+    height: auto;
+    border-radius: 0.1rem;
+}
+
+.relevant{
+    color: #000;
+    font-size: 0.26rem;
+    line-height: 0.35rem;
+    margin-top: 0.2rem;
+    border-top: 0.01rem solid #ccc;
+    padding-top: 0.2rem;
+}
+.relevant a{
+    color: #1f8b3b;
+}
+.relevant .prev{
+    float: left;
+}
+
+.relevant .next{
+    float: right;
+}
+
+.relevant .text-right{
+    text-align: right;
+}
+.relevant .pte{
+    font-size: 0.22rem;
+}
+
+.slogan{
+    margin-left: 0.32rem;
+    margin-top: 3rem;
+}
+
+.slogan .p1{
+    font-size: 0.7rem;
+}
+
+.slogan .p2{
+    font-size: 0.52rem;
+}
+

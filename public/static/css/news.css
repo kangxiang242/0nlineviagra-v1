@@ -1,0 +1,153 @@
+.container{
+
+}
+.line{
+
+    background: #E6E6E6;
+    margin-bottom: 50px;
+}
+.news-main{
+    width: 840px;
+    float: left;
+}
+
+
+
+
+.news-main .news-item{
+    border: 1px solid #E6E6E6;
+    border-radius: 6px;
+    padding: 24px;
+    display: flex;
+    margin-bottom: 40px;
+    cursor: pointer;
+    -moz-transition: all .15s ease-in;
+    -webkit-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+}
+
+.news-main .news-item .news-title{
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.news-main .news-item .news-title a{
+    color: #000;
+
+    -moz-transition: all .15s ease-in;
+    -webkit-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+}
+
+.news-desc{
+    width: 485px;
+    float: left;
+    margin-left: 24px;
+    align-self: center;
+}
+
+.news-desc .news-tips{
+    font-size: 16px;
+    color: #999999;
+    margin-top: 43px;
+    margin-bottom: 31px;
+}
+
+.news-img{
+    float:left;
+}
+.news-img img{
+    width: 280px;
+/*    height: 280px;*/
+}
+
+.news-desc .go-desc{
+    width: 120px;
+    height: 28px;
+    border: 1px solid #26b44b;
+    border-radius: 6px;
+    display: inline-block;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    color: #26b44b;
+
+    -moz-transition: all .15s ease-in;
+    -webkit-transition: all .15s ease-in;
+    -o-transition: all .15s ease-in;
+    -ms-transition: all .15s ease-in;
+    transition: all .15s ease-in;
+}
+
+.news-item:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+}
+
+.news-item:hover .news-title a{
+    color: #26b44b;
+}
+
+.news-item:hover .news-desc .go-desc{
+    background: #26b44b;
+    color: #fff;
+}
+
+
+.popularity {
+    float: right;
+
+}
+
+.popularity-row{
+    width: 280px;
+    padding: 44px 16px 48px 16px;
+    border: 1px solid #E6E6E6;
+    border-radius: 6px;
+    margin-bottom: 31px;
+}
+.popularity-row .box-header{
+    margin-bottom: 35px;
+}
+.popularity-row .title{
+    font-size: 20px;
+    color: #000;
+
+}
+.popularity-title-edition .list-item{
+    margin-bottom: 32px;
+}
+.popularity-title-edition .list-item:last-child{
+    margin-bottom: 0;
+}
+.popularity-title-edition .list a {
+    color: #000;
+    font-size: 14px;
+
+}
+.popularity-item-img{
+    float:left;
+}
+.popularity-item-img img{
+    width: 80px;
+    height: 80px;
+}
+.popularity-product .popularity-item{
+    margin-bottom: 32px;
+}
+.popularity-product .popularity-item:last-child{
+    margin-bottom: 0;
+}
+.popularity-product .popularity-item .product{
+    display: flex;
+}
+
+.popularity-product .popularity-item .product .new-name{
+    align-self: center;
+    margin-left: 8px;
+    font-size: 14px;
+}
