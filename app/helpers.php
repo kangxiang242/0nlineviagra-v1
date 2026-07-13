@@ -99,7 +99,10 @@ if (!function_exists('storage_url')) {
      */
     function storage_url($path)
     {
-        return \Illuminate\Support\Facades\Storage::url($path);
+        if ($path instanceof \App\Repositories\Transformer\ConfigTransformer) {
+            $path = $path->value();
+        }
+        return $path ? \Illuminate\Support\Facades\Storage::url($path) : "";
     }
 }
 
