@@ -18,7 +18,7 @@ class BannerResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     
     protected static ?string $navigationLabel = '橫幅管理';
-    
+    protected static ?int $navigationSort = 5;    
     protected static ?string $modelLabel = '橫幅管理';
     
     protected static ?string $pluralModelLabel = '橫幅管理';

@@ -25,7 +25,7 @@
     <meta name="robots" content="noarchive" />
     <link rel="canonical" href="{{ config('app.url') }}/{{ trim(request()->path(),'/') }}">
 
-    <link rel="shortcut icon" href="{{ ($favicon = $setting->get('favicon')->value()) ? storage_url($favicon) : '/favicon.ico' }}">
+    <link rel="shortcut icon" href="{{ ($favicon = $setting->get('favicon')->value()) ? storage_url($favicon) : '/favicon.svg' }}">
     <style>
         :root{
             --main-color: {{ $setting->get('main_color') }};

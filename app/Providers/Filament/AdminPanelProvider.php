@@ -25,12 +25,20 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->brandName(config("app.name"))
-            ->collapsibleNavigationGroups()
             ->brandName(config("app.name"))
             ->id('admin')
             ->path('admin')
-            ->login()
-            ->collapsibleNavigationGroups()
+            ->login(\App\Filament\Pages\Auth\Login::class)
+            ->sidebarCollapsibleOnDesktop()
+            ->maxContentWidth('full')
+            ->renderHook(
+                'panels::styles.after',
+                fn () => view('filament.hooks.custom-styles')
+            )
+            ->renderHook(
+                'panels::global-search.after',
+                fn () => view('filament.hooks.frontend-button')
+            )
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -41,8 +49,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                \App\Filament\Widgets\RightStatsWidget::class,
+                \App\Filament\Widgets\PageAccessRankingWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

@@ -18,7 +18,7 @@ class AnchorResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     
     protected static ?string $navigationLabel = '錨點管理';
-    
+    protected static ?int $navigationSort = 11;    
     protected static ?string $modelLabel = '錨點管理';
     
     protected static ?string $pluralModelLabel = '錨點管理';

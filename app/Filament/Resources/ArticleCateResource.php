@@ -18,7 +18,7 @@ class ArticleCateResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     
     protected static ?string $navigationLabel = '文章分類';
-    
+    protected static ?int $navigationSort = 4;    
     protected static ?string $modelLabel = '文章分類';
     
     protected static ?string $pluralModelLabel = '文章分類';

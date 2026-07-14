@@ -19,7 +19,7 @@ class ArticleResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     
     protected static ?string $navigationLabel = '文章管理';
-    
+    protected static ?int $navigationSort = 3;    
     protected static ?string $modelLabel = '文章管理';
     
     protected static ?string $pluralModelLabel = '文章管理';

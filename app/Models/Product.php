@@ -26,4 +26,10 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function getImgUrlAttribute()
+    {
+        $img = $this->img;
+        if (empty($img)) return null;
+        return url("storage/" . ltrim($img, "/"));
+    }
 }
