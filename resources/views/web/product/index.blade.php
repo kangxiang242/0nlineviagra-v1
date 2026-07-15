@@ -172,63 +172,65 @@
     </script>
 @stop
 @section('breadcrumb')
-    <ul class="breadcrumb">
-        <li><a href="{{ URL::to('/') }}">首頁</a></li>
-        <li class="active">線上訂購威而鋼{{ $category->name }}</li>
-    </ul>
+    <nav aria-label="Breadcrumb">
+        <ul class="breadcrumb">
+            <li><a href="{{ URL::to('/') }}">首頁</a></li>
+            <li class="active">線上訂購威而鋼壯陽藥 {{ $category->name }}</li>
+        </ul>
+    </nav>
 @stop
 @section('title-before','訂購'.$category->name)
 @section('banners')@stop
 @section('page-header')@stop
 @section('content')
 
-    <div class="goods">
-        <div class="info-wrap">
-            <img src="{{ storage_url($category->img) }}" loading="lazy" oncontextmenu="return false" draggable="false" alt="{{ $setting->get('page_product_title') }} {{ $category->name }}包裝展示 - {{ $category->describe }}">
+    <section class="goods">
+        <header class="info-wrap">
+            <img src="{{ storage_url($category->img) }}" loading="lazy" oncontextmenu="return false" draggable="false" alt="{{ $setting->get('page_product_title') }} {{ $category->name }} 壯陽藥包裝展示 - {{ $category->describe }}">
             <h1>{{ $setting->get('page_product_title') }} {{ $category->name }}</h1>
             <p class="sub">{{ $category->describe }}｜{{ $category->describe2 }}</p>
             <p class="en-name">{{ $setting->get('page_product_title_en') }}</p>
-            <div class="indication">
-                <p class="title">功效與適應症說明：</p>
+            <section class="indication">
+                <h2 class="title">威而鋼壯陽藥功效與適應症說明：</h2>
                 <div class="indication-list">
                     @foreach($setting->get('adapt')->toArray() as $item)
                     <p>{{ data_get($item,'text') }}</p>
                     @endforeach
                 </div>
-            </div>
-            <div class="sku">
-                <p class="title">劑量選擇：</p>
+            </section>
+            <nav class="sku" aria-label="威而鋼劑量選擇">
+                <h2 class="title">威而鋼劑量選擇：</h2>
                 <div class="spec-main">
                     @foreach($categorys as $key=>$item)
-                        <p class="spec-item {{ $item->uri==request()->path()?"activate":"" }}"><a href="{{ URL::to($item->uri) }}">{{ $item->name }}</a ></p>
+                        <p class="spec-item {{ $item->uri==request()->path()?"activate":"" }}"><a href="{{ URL::to($item->uri) }}">威而鋼 {{ $item->name }}</a ></p>
                     @endforeach
                 </div>
-            </div>
-        </div>
+            </nav>
+        </header>
 
-        <div class="card">
-            <p class="hero-title">組合裝線上訂購</p>
+        <section class="card">
+            <h2 class="hero-title">威而鋼組合裝線上訂購</h2>
             <div class="products">
                 @foreach($category->products as $goods)
-                    <div class="product-item">
+                    <article class="product-item" itemscope itemtype="https://schema.org/Product">
                         <div class="quantity">
-                            <p class="cate">威而鋼 {{ $category->name }}</p>
-                            <p class="goods-name">{{ $goods->name }}</p>
+                            <p class="cate">威而鋼壯陽藥 {{ $category->name }}</p>
+                            <h3 class="goods-name" itemprop="name">{{ $goods->name }}</h3>
                             <p class="price"><small>NT$</small>{{ number_format(round($goods->price)) }}</p>
                         </div>
                         <div class="button">
-                            <a class="go-checkout" data-id="{{ $goods->id }}"><span>立即訂購</span><i class="iconfont">&#xe625;</i></a>
+                            <a class="go-checkout" data-id="{{ $goods->id }}" itemprop="url"><span>立即訂購</span><i class="iconfont">&#xe625;</i></a>
                             <span class="freight">免配送服務費</span>
                         </div>
-                    </div>
+                    </article>
                 @endforeach
 
             </div>
-        </div>
+        </section>
         
-    </div>
-    <div class="prescribe">
-        <p class="hero-title">處方訊息</p>
+    </section>
+    <section class="prescribe">
+        <h2 class="hero-title">威而鋼壯陽藥處方訊息</h2>
         @php
             $prescribes = [];
             try {
@@ -239,14 +241,14 @@
         @endphp
         @foreach($prescribes as $item)
             <div class="accordion-content">
-                <p class="title">{{ data_get($item,'title') }}</p>
+                <h3 class="title">{{ data_get($item,'title') }}</h3>
                 {!! data_get($item,'content') !!}
             </div>
         @endforeach
         <p class="toggle-btn">查看全部內容</p>
-    </div>
-    <div class="faq-section">
-        <p class="hero-title">常見問題</p>
+    </section>
+    <section class="faq-section">
+        <h2 class="hero-title">威而鋼壯陽藥常見問題</h2>
         @foreach($faqs as $faq)
             @if($faq->category_id == $category->id)
             <div class="faq-item">
@@ -258,22 +260,22 @@
             </div>
             @endif
         @endforeach
-    </div>
-    <div class="news-section">
-        <p class="hero-title">性健康知識</p>
+    </section>
+    <section class="news-section">
+        <h2 class="hero-title">性健康知識</h2>
         <div class="news-container">
             @foreach($news->where('article_cate_id',4)->take(3) as $item)
-                <div class="news-item">
+                <article class="news-item">
                     <a href="{{ $item->uri }}" title="閱讀 {{ $item->title }}全部內容">
                         <img class="news-image" src="{{ storage_url($item->img) }}" loading="lazy" alt="{{ $item->title }}">
-                        <p class="news-title">{{ $item->title }}</p>
+                        <h3 class="news-title">{{ $item->title }}</h3>
                         <p class="news-desc">{{ $item->brief }}</p>
                         <span class="more text-underline">閱讀全文</span>
                     </a>
-                </div>
+                </article>
             @endforeach
         </div>
-    </div>
+    </section>
 
 
 @endsection

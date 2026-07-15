@@ -77,16 +77,18 @@
     </script>
 @stop
 @section('breadcrumb')
-    <ul class="breadcrumb">
-        <li><a href="{{ URL::to('/') }}">首頁</a></li>
-        <li class="active">{{ $page->title }}</li>
-    </ul>
+    <nav aria-label="Breadcrumb">
+        <ul class="breadcrumb">
+            <li><a href="{{ URL::to('/') }}">首頁</a></li>
+            <li class="active">{{ $page->title }}</li>
+        </ul>
+    </nav>
 @stop
 @section('title',$page->title)
 @section('billboard-title',$page->title)
 @section('billboard-desc',$page->desc)
 @section('content')
-    <div class="page-container">
+    <section class="page-container" aria-label="威而鋼壯陽藥常見問題">
         @foreach($faqs as $faq)
             <div class="faq-item">
                 <div class="faq-question">
@@ -96,5 +98,5 @@
                 <p class="faq-answer">{{ $faq->answers }}</p>
             </div>
         @endforeach
-    </div>
+    </section>
 @endsection

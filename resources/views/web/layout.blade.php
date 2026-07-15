@@ -104,7 +104,7 @@
 <body>
 
 @section('header')
-<div class="main-head">
+<header class="main-head">
     <a href="{{ URL::to('/') }}" class="logo-sec-link">
         @if($setting->get('logo_type') == '1')
             {!! $setting->get('logo_svg') !!}
@@ -112,7 +112,7 @@
             <img class="g-logo" src="{{ storage_url($setting->get('logo')) }}" alt="輝瑞威而鋼壯陽藥官網logo">
         @endif
     </a>
-    <div class="nav-sec">
+    <nav class="nav-sec" aria-label="主選單">
         <a class="menu-btn nav-heading close-btn" href="javascript:;" onclick="closeMobileMenu()">
             <span class="text">關閉選單</span>
             <i class="iconfont">&#xeca0;</i>
@@ -139,13 +139,13 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </nav>
     <a class="menu-btn" href="javascript:;" onclick="showMobileMenu()">
         <span class="text">選單</span>
         <i class="iconfont">&#xe62c;</i>
     </a>
     <div class="shade" onclick="closeMobileMenu()"></div>
-</div>
+</header>
 
 @show
 
@@ -153,28 +153,28 @@
     @php
         $class = Request::is('/') ? '' : 'hasborad';
     @endphp
-    <div class="ad-carousel swiper-container">
+    <aside class="ad-carousel swiper-container" aria-label="威而鋼線上訂購推薦">
         <div class="swiper-wrapper">
             @foreach($categorys as $item)
-            <div class="swiper-slide">
-                <img class="ad-pic"src="{{ storage_url($setting->get('ad_img')) }}" alt="威而鋼VIAGRA® {{ $item->name }} 產品圖片展示">
+            <article class="swiper-slide" itemscope itemtype="https://schema.org/Product">
+                <img class="ad-pic" itemprop="image" src="{{ storage_url($setting->get('ad_img')) }}" alt="威而鋼VIAGRA® {{ $item->name }} 線上訂購產品圖片展示">
                 <div class="ad-text">
-                    <p class="p1"><span>威而鋼 VIAGRA<sup>®</sup> {{ $item->name }}</span>{{ $item->describe }}</p>
-                    <p class="p2">{{ $item->describe2 }}</p>
+                    <h2 class="p1" itemprop="name"><span>威而鋼 VIAGRA<sup>®</sup> {{ $item->name }}</span>{{ $item->describe }}</h2>
+                    <p class="p2" itemprop="description">{{ $item->describe2 }}</p>
                 </div>
-                <a href="{{ URL::to($item->uri) }}" class="ad-btn">
+                <a href="{{ URL::to($item->uri) }}" itemprop="url" class="ad-btn" title="立即訂購威而鋼 {{ $item->name }}">
                     <span>立即訂購</span>
                     <i class="iconfont">&#xe684;</i>
                 </a>
-            </div>
+            </article>
             @endforeach
         </div>
         <div class="swiper-pagination"></div>
         <a class="close-btn" href="javascript:;" onclick="closeAside()">
             <i class="iconfont">&#xeca0;</i>
         </a>
-    </div>
-    <div class="page-head {{ $class }}">
+    </aside>
+    <header class="page-head {{ $class }}">
         <div class="page-header-content">
             <h1>{!! isset($page)?$page->title:"" !!}</h1>
             <p class="sub">@yield('billboard-desc')</p>
@@ -185,15 +185,15 @@
             </div>
             @yield('embed-banner')
         @endif
-    </div>
+    </header>
 @show
 
 @section('breadcrumb')
 @show
 
-
+<main>
 @yield('content')
-
+</main>
 
 @section('footer')
 <footer>
@@ -223,14 +223,14 @@
         </a>
         
     </div>
-    <div class="main-links">
+    <nav class="main-links" aria-label="威而鋼線上訂購連結">
         <p class="links-title">輝瑞威而鋼 VIAGRA<sup>®</sup>&nbsp;線上訂購：</p>
         <div class="links-list">
             @foreach($categorys as $item)
                 <p class="links-item"><a href="{{ $item->uri?url($item->uri):"javascript:;" }}">威而鋼 VIAGRA<sup>®</sup>&nbsp;{{ $item->name }}</a></p>
             @endforeach
         </div>
-    </div>
+    </nav>
     <p class="foot-text">{!! str_replace(PHP_EOL,'<br>',$setting->get('foot_text')) !!}</p>
 
 </footer>
@@ -254,6 +254,52 @@
         $('body').css('overflow', 'auto')
     }
 </script>
+@php
+    $trackingPath = trim(request()->path(), '/');
+    $trackingPageType = 'cms';
+    if ($trackingPath === '') {
+        $trackingPageType = 'home';
+    } elseif (request()->is('checkout/*') || request()->is('shopping/*')) {
+        $trackingPageType = 'checkout';
+    } elseif (request()->is('order/success/*')) {
+        $trackingPageType = 'order_success';
+    } elseif (request()->is('order/*')) {
+        $trackingPageType = 'order_status';
+    } elseif (request()->is('check')) {
+        $trackingPageType = 'order_check';
+    } elseif (request()->is('contact')) {
+        $trackingPageType = 'message';
+    } elseif (request()->is('faq')) {
+        $trackingPageType = 'faq';
+    } elseif (isset($news)) {
+        $trackingPageType = 'news_detail';
+    } elseif (request()->is('news') || request()->is('blog')) {
+        $trackingPageType = 'news_list';
+    } elseif (isset($category)) {
+        $trackingPageType = 'product_list';
+    } elseif (request()->is('product/*')) {
+        $trackingPageType = 'product_detail';
+    }
+    $trackingGoodsId = $trackingPageType === 'checkout' && isset($goods) ? ($goods->id ?? null) : null;
+    $trackingSiteName = (string) $setting->get('site_name');
+@endphp
+<script>
+    window.__TRACKING_CONFIG__ = {
+        endpoint: '/observer/store',
+        webHost: location.hostname,
+        site: @json($trackingSiteName),
+        enabled: true
+    };
+    window.__TRACKING_PAGE__ = {
+        page_type: @json($trackingPageType),
+        goods_id: @json($trackingGoodsId),
+        article_id: @json(isset($news) ? ($news->id ?? null) : null),
+        category_id: @json(isset($category) ? ($category->id ?? null) : null),
+        cms_uri: @json(isset($page) ? ($page->uri ?? null) : null)
+    };
+</script>
+<script src="{{ assetv('static/js/tracker.js') }}" defer></script>
+<script src="{{ assetv('static/js/observer.js') }}" defer></script>
 @show
 
 </html>

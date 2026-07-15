@@ -11,10 +11,12 @@
 
 @stop
 @section('breadcrumb')
-    <ul class="breadcrumb">
-        <li><a href="{{ URL::to('/') }}">首頁</a></li>
-        <li class="active">{{ $cate->name }}</li>
-    </ul>
+    <nav aria-label="Breadcrumb">
+        <ul class="breadcrumb">
+            <li><a href="{{ URL::to('/') }}">首頁</a></li>
+            <li class="active">{{ $cate->name }}</li>
+        </ul>
+    </nav>
 @stop
 
 @section('title-before',$cate->name)
@@ -24,19 +26,19 @@
 @section('billboard-desc',$cate->desc)
 
 @section('content')
-    <div class="news">
+    <section class="news" aria-label="{{ $cate->name }}文章列表">
         @foreach($news as $item)
-            <div class="news-item">
+            <article class="news-item">
                 <a href="{{ $item->uri }}" title="閱讀 {{ $item->title }}全部內容">
                     <img class="news-image" src="{{ storage_url($item->img) }}" loading="lazy" alt="{{ $item->title }}">
-                    <p class="news-title">{{ $item->title }}</p>
+                    <h2 class="news-title">{{ $item->title }}</h2>
                     <p class="news-desc">{{ $item->brief }}</p>
                     <span class="more text-underline">閱讀全文</span>
                 </a>
-            </div>
+            </article>
         @endforeach
         {{--<div class="pagination">
             {!! $news->links() !!}
         </div>--}}
-    </div>
+    </section>
 @endsection

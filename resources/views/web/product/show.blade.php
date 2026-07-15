@@ -86,7 +86,7 @@
 @section('breadcrumb')
     <ul class="breadcrumb" style="display: none">
         <li><a href="{{ URL::to('/') }}">首頁</a></li>
-        <li><a href="{{ URL::to('product') }}">訂購犀利士</a></li>
+        <li><a href="{{ URL::to('product') }}">訂購威而鋼</a></li>
         <li class="active">處方訊息</li>
     </ul>
 @stop

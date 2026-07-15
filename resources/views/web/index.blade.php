@@ -173,30 +173,30 @@
 @stop
 
 @section('content')
-    <div class="container first-container">
-        <div class="sec-title">
+    <section class="container first-container">
+        <header class="sec-title">
             <h2 class="title">{{ $setting->get('home_lilly_about_title') }}</h2>
             <p class="text">{{ $setting->get('home_lilly_about_desc') }}</p>
-            <a class="more" href="{{ URL::to('about') }}" title="點擊了解更多 關於輝瑞威而鋼">了解更多 關於輝瑞威而鋼</a>
-        </div>
-        <img class="float-image" src="{{ storage_url($setting->get('home_pill_img')) }}" loading="lazy">
-        <div class="image wow animate__animated animate__fadeInUp"><img class="scale-img" src="{{ storage_url($setting->get('home_about_img')) }}"></div>
-    </div>
-    <div id="chart" class="reverse container">
+            <a class="more" href="{{ URL::to('about') }}" title="點擊了解更多 關於輝瑞威而鋼壯陽藥">了解更多 關於輝瑞威而鋼壯陽藥</a>
+        </header>
+        <img class="float-image" src="{{ storage_url($setting->get('home_pill_img')) }}" alt="威而鋼壯陽藥藥丸展示" loading="lazy">
+        <div class="image wow animate__animated animate__fadeInUp"><img class="scale-img" src="{{ storage_url($setting->get('home_about_img')) }}" alt="{{ $setting->get('home_lilly_about_title') }}"></div>
+    </section>
+    <section id="chart" class="reverse container">
         <div class="chart-container">
             <canvas class="wow animate__animated animate__fadeInUp" id="myChart" width="300" height="300"></canvas>
         </div>
-        <div class="sec-title health">
+        <header class="sec-title health">
             <h2 class="title">{{ $setting->get('home_health_about_title') }}</h2>
             <p class="text">{{ $setting->get('home_health_about_desc') }}</p>
             <a class="more" href="{{ URL::to('about') }}" title="點擊了解更多 關於勃起障礙">了解更多 關於勃起障礙</a>
-        </div>
-    </div>
-    <div class="channel container">
-        <div>
+        </header>
+    </section>
+    <section class="channel container">
+        <header>
             <h2 class="title">{!! $setting->get('advs_title') !!}</h2>
             <p class="subtitle">如何獲取？</p>
-        </div>
+        </header>
         <div class="picture">
             @foreach($setting->get('cialis_advs')->toArray() as $key=>$item)
                 @if($key>=2)
@@ -224,28 +224,28 @@
                 
             @endforeach
         </div>
-        <div class="dosage-list container">
-            <p class="subtitle">線上訂購威而鋼劑量選擇</p>
+        <section class="dosage-list container">
+            <h3 class="subtitle">線上訂購威而鋼壯陽藥劑量選擇</h3>
             @foreach($categorys as $item)
-                <div class="dosage">
-                    <img class="ad-pic" loading="lazy" src="{{ storage_url($setting->get('ad_img')) }}" alt="威而鋼VIAGRA® {{ $item->name }} 產品圖片展示">
+                <article class="dosage" itemscope itemtype="https://schema.org/Product">
+                    <img class="ad-pic" itemprop="image" loading="lazy" src="{{ storage_url($setting->get('ad_img')) }}" alt="威而鋼VIAGRA® {{ $item->name }} 線上訂購產品圖片展示">
                     <div class="ad-text">
-                        <p class="p1"><span class="highlight">{{ $item->describe }}</span><span>威而鋼 VIAGRA<sup>®</sup> {{ $item->name }}</span></p>
-                        <p class="p2">{{ $item->describe2 }}</p>
+                        <h4 class="p1" itemprop="name"><span class="highlight">{{ $item->describe }}</span><span>威而鋼 VIAGRA<sup>®</sup> {{ $item->name }}</span></h4>
+                        <p class="p2" itemprop="description">{{ $item->describe2 }}</p>
                     </div>
-                    <a href="{{ URL::to($item->uri) }}" class="ad-btn" title="查看 威而鋼 {{ $item->name }} 線上訂購優惠組合">
+                    <a href="{{ URL::to($item->uri) }}" itemprop="url" class="ad-btn" title="查看 威而鋼 {{ $item->name }} 線上訂購優惠組合">
                         <span>查看 威而鋼 {{ $item->name }} 優惠組合</span>
                         <i class="iconfont">&#xe684;</i>
                     </a>
-                </div>
+                </article>
             @endforeach
-        </div>
+        </section>
 
-    </div>
-    <div class="experience container">
-        <div class="sec-title">
+    </section>
+    <section class="experience container">
+        <header class="sec-title">
             <h2 class="title">{!! $setting->get('home_diversified_about_title') !!}</h2>
-        </div>
+        </header>
         <div class="content">
             <div class="present">
                 <p class="text">{{ $setting->get('home_diversified_about_desc') }}</p>
@@ -260,24 +260,24 @@
                 @endforeach
             </div>
         </div>
-        <div class="news-list container" aria-label="性健康知識分享">
-            <p class="subtitle">性健康知識分享</p>
+        <section class="news-list container" aria-label="性健康知識分享">
+            <h3 class="subtitle">性健康知識分享</h3>
             @foreach($news->where('article_cate_id',4)->take(3) as $item)
-                <div class="news-item">
+                <article class="news-item">
                     <a href="{{ URL::to($item->uri) }}" title="閱讀 {{ $item->title }}全部內容">
                         <img class="news-image" src="{{ storage_url($item->img) }}" loading="lazy" alt="{{ $item->title }}">
-                        <p class="news-title">{{ $item->title }}</p>
+                        <h4 class="news-title">{{ $item->title }}</h4>
                         <p class="news-desc">{{ $item->brief }}</p>
                         <span class="more text-underline">閱讀全文</span>
                     </a>
-                </div>
+                </article>
             @endforeach
-        </div>
-    </div>
-    <div class="faq-section container">
-        <div class="sec-title">
-            <h2 class="title">顧客常見疑問</h2>
-        </div>
+        </section>
+    </section>
+    <section class="faq-section container">
+        <header class="sec-title">
+            <h2 class="title">威而鋼壯陽藥顧客常見疑問</h2>
+        </header>
         @foreach($faqs as $faq)
             @if($faq->category_id == 0)
             <div class="faq-item">
@@ -290,22 +290,22 @@
             @endif
         @endforeach
         <a class="more text-underline" href="{{ URL::to('faq') }}" title="了解更多 威而鋼壯陽藥顧客常見疑問">了解更多 威而鋼壯陽藥顧客常見疑問</a>
-    </div>
-    <div class="news container">
-        <div class="sec-title">
+    </section>
+    <section class="news container">
+        <header class="sec-title">
             <h2 class="title">{{ $setting->get('home_news_about_title') }}</h2>
             <p class="text">{{ $setting->get('home_news_about_desc') }}</p>
-            <a class="more" href="{{ URL::to('blog') }}" title="點擊了解更多 威而鋼使用心得">了解更多 威而鋼使用心得</a>
-        </div>
+            <a class="more" href="{{ URL::to('blog') }}" title="點擊了解更多 威而鋼壯陽藥使用心得">了解更多 威而鋼壯陽藥使用心得</a>
+        </header>
         @foreach($news->where('article_cate_id',3)->take(3) as $item)
-            <div class="news-item">
+            <article class="news-item">
                 <a href="{{ $item->uri }}" title="閱讀 {{ $item->title }}全部內容">
-                    <img class="news-image" src="{{ storage_url($item->img) }}" loading="lazy">
-                    <p class="news-title">{{ $item->title }}</p>
+                    <img class="news-image" src="{{ storage_url($item->img) }}" loading="lazy" alt="{{ $item->title }}">
+                    <h3 class="news-title">{{ $item->title }}</h3>
                     <p class="news-desc">{{ $item->brief }}</p>
                     <span class="more text-underline">閱讀全文</span>
                 </a>
-            </div>
+            </article>
         @endforeach
-    </div>
+    </section>
 @endsection

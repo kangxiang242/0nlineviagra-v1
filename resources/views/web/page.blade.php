@@ -13,10 +13,12 @@
 
 @stop
 @section('breadcrumb')
-    <ul class="breadcrumb">
-        <li><a href="{{ URL::to('/') }}">首頁</a></li>
-        <li class="active">{{ $page->title }}</li>
-    </ul>
+    <nav aria-label="Breadcrumb">
+        <ul class="breadcrumb">
+            <li><a href="{{ URL::to('/') }}">首頁</a></li>
+            <li class="active">{{ $page->title }}</li>
+        </ul>
+    </nav>
 @stop
 @section('title',$page->title)
 @section('billboard-title',$page->title)
