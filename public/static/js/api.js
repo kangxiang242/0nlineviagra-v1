@@ -6,6 +6,21 @@
     }
 })(jQuery)
 
+function safeRedirectUrl(url){
+    if(!url || typeof url !== 'string'){
+        return null;
+    }
+    try{
+        var parsed = new URL(url, window.location.origin);
+        if(parsed.origin !== window.location.origin){
+            return null;
+        }
+        return parsed.pathname + parsed.search + parsed.hash;
+    }catch (e){
+        return null;
+    }
+}
+
 var pop;
 function orderStore(){
 
@@ -347,7 +362,16 @@ function orderCheck(){
         dataType: "json",
         success: function(data){
             if(data.code == 200){
-                window.location.href = data.jump;
+                var jump = safeRedirectUrl(data.jump);
+                if(jump){
+                    window.location.href = jump;
+                }else{
+                    Swal.fire({
+                        title: '查詢失敗!',
+                        text: '跳轉地址無效',
+                        icon: 'error',
+                    });
+                }
             }else{
 
                 Swal.fire({
@@ -797,34 +821,37 @@ function submit(elem,options={}){
         success: function(result){
 
             if(result.redirect){
-
-                window.location.href = result.redirect;
-            }else{
-                if(options.success){
-                    options.success(result);
-                }else{
-                    var swal_options = {};
-                    swal_options.iconColor = "#fff";
-                    if(result.title){
-                        swal_options.title = result.title;
-                    }
-                    if(result.message){
-                        swal_options.text = result.message;
-                    }
-                    swal_options.background = "rgba(0,0,0,1)";
-                    swal_options.width = "auto";
-                    swal_options.backdrop = "false";
-                    swal_options.timer = 2000;
-                    swal_options.showConfirmButton = false;
-                    swal_options.color = "#fff";
-                    if(result.status == true){
-                        swal_options.icon = 'success'
-                    }else{
-                        swal_options.icon = 'error'
-                    }
-                    Swal.fire(swal_options)
-                    _this.clearForm()
+                var redirect = safeRedirectUrl(result.redirect);
+                if(redirect){
+                    window.location.href = redirect;
+                    return;
                 }
+            }
+
+            if(options.success){
+                options.success(result);
+            }else{
+                var swal_options = {};
+                swal_options.iconColor = "#fff";
+                if(result.title){
+                    swal_options.title = result.title;
+                }
+                if(result.message){
+                    swal_options.text = result.message;
+                }
+                swal_options.background = "rgba(0,0,0,1)";
+                swal_options.width = "auto";
+                swal_options.backdrop = "false";
+                swal_options.timer = 2000;
+                swal_options.showConfirmButton = false;
+                swal_options.color = "#fff";
+                if(result.status == true){
+                    swal_options.icon = 'success'
+                }else{
+                    swal_options.icon = 'error'
+                }
+                Swal.fire(swal_options)
+                _this.clearForm()
             }
 
         },
@@ -856,4 +883,3 @@ function submit(elem,options={}){
     return false;
 
 }
-

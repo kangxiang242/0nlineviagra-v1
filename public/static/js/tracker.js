@@ -90,6 +90,18 @@
         }
     }
 
+    function cleanUrl(value) {
+        if (!value) {
+            return null;
+        }
+        try {
+            var url = new URL(value, location.href);
+            return url.origin + url.pathname;
+        } catch (error) {
+            return String(value).split('?')[0].split('#')[0].slice(0, 200);
+        }
+    }
+
     function textOf(element) {
         if (!element) {
             return '';
@@ -112,10 +124,10 @@
             web_host: config.webHost || location.hostname,
             site: config.site || null,
             page_type: page.page_type || 'unknown',
-            page_url: location.href,
+            page_url: cleanUrl(location.href),
             page_path: location.pathname,
             page_title: document.title,
-            referrer: document.referrer || null,
+            referrer: cleanUrl(document.referrer),
             goods_id: page.goods_id || null,
             article_id: page.article_id || null,
             category_id: page.category_id || null,

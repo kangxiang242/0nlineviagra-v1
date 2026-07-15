@@ -42,10 +42,10 @@
             }
         });
 
-        $('a').click(function(){
+        $('a[href^="#"]').click(function(){
             var anchor = $(this).attr('href');
 
-            if(anchor){
+            if(anchor && anchor.length > 1){
 
                 anchorShowSection(anchor);
                 return false;
@@ -59,7 +59,7 @@
             var anchor_elem = $("a[name='"+anchor+"']");
             var parent_elem = $("a[name='"+anchor+"']").parents('.accordion');
 
-            if(parent_elem){
+            if(anchor_elem.length && parent_elem.length){
                 parent_elem.addClass('open');
                 var current = anchor_elem.offset().top;
                 $("html,body").stop().animate({
