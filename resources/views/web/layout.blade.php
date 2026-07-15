@@ -257,6 +257,7 @@
 @php
     $trackingPath = trim(request()->path(), '/');
     $trackingPageType = 'cms';
+    $trackingHasCategoryModel = isset($category) && is_object($category) && method_exists($category, 'getAttribute');
     if ($trackingPath === '') {
         $trackingPageType = 'home';
     } elseif (request()->is('checkout/*') || request()->is('shopping/*')) {
@@ -275,12 +276,15 @@
         $trackingPageType = 'news_detail';
     } elseif (request()->is('news') || request()->is('blog')) {
         $trackingPageType = 'news_list';
-    } elseif (isset($category)) {
+    } elseif ($trackingHasCategoryModel) {
         $trackingPageType = 'product_list';
     } elseif (request()->is('product/*')) {
         $trackingPageType = 'product_detail';
     }
     $trackingGoodsId = $trackingPageType === 'checkout' && isset($goods) ? ($goods->id ?? null) : null;
+    $trackingArticleId = isset($news) && is_object($news) && method_exists($news, 'getAttribute') ? $news->getAttribute('id') : null;
+    $trackingCategoryId = $trackingHasCategoryModel ? $category->getAttribute('id') : null;
+    $trackingCmsUri = isset($page) && is_object($page) && method_exists($page, 'getAttribute') ? $page->getAttribute('uri') : null;
     $trackingSiteName = (string) $setting->get('site_name');
 @endphp
 <script>
@@ -293,9 +297,9 @@
     window.__TRACKING_PAGE__ = {
         page_type: @json($trackingPageType),
         goods_id: @json($trackingGoodsId),
-        article_id: @json(isset($news) ? ($news->id ?? null) : null),
-        category_id: @json(isset($category) ? ($category->id ?? null) : null),
-        cms_uri: @json(isset($page) ? ($page->uri ?? null) : null)
+        article_id: @json($trackingArticleId),
+        category_id: @json($trackingCategoryId),
+        cms_uri: @json($trackingCmsUri)
     };
 </script>
 <script src="{{ assetv('static/js/tracker.js') }}" defer></script>
