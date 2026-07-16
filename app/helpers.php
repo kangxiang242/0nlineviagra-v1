@@ -161,3 +161,7 @@ if (!function_exists('get_device')) {
 
     }
 }
+
+
+// Alias for backward compatibility with old Rizhou namespace
+class_alias(\App\Services\StoreSynchronizing::class, 'Rizhou\Control\Supply\StoreSynchronizing');

@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="name" class="form-label">聯絡電話：</label>
-                                        <input type="text" class="form-content" name="phone" placeholder="">
+                                        <input type="text" class="form-content" name="phone" placeholder="" maxlength="10" oninput="this.value=this.value.replace(/[^0-9-]/g,"")">
                                     </div>
 
                                     <div class="form-group">
@@ -193,64 +193,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="head">
-                                <p class="title">付款方式</p>
-                            </div>
-                            <div class="main">
-                                <div class="form-wrap">
-                                    <div class="form-radio">
-                                        <input class="hide" type="radio" id="pay-1" name="pay_type" value="1" disabled>
-                                        <label for="pay-1" class="radio-label">
-                                            <span class="dress"></span>
-                                            <div class="article">
-                                                <p class="text"><span class="s1">信用卡付款（系統升級暫停服務）</span></p>
-
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <div class="form-radio">
-                                        <input class="hide" type="radio" id="pay-2" name="pay_type" value="2" disabled>
-                                        <label for="pay-2" class="radio-label">
-                                            <span class="dress"></span>
-                                            <div class="article">
-                                                <p class="text"><span class="s1">ATM付款（系統升級暫停服務）</span></p>
-
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <div class="form-radio">
-                                        <input class="hide" type="radio" id="pay-3" name="pay_type" value="3"  checked>
-                                        <label for="pay-3" class="radio-label">
-                                            <span class="dress"></span>
-                                            <div class="article">
-                                                <p class="text"><span class="s1" id="rel-order-type">取貨付款</span></p>
-
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="head">
-                                <p class="title">包裝</p>
-                            </div>
-                            <div class="main">
-                                <div class="form-wrap">
-                                    <div class="form-radio">
-                                        <input class="hide" type="radio" id="pack-1" name="pack_type" checked>
-                                        <label for="pack-1" class="radio-label grow">
-                                            <span class="dress"></span>
-                                            <div class="article">
-                                                <p class="text"><span class="s1">禮品包裝：</span><span class="s2">隱密包裝&資訊保護</span></p>
-                                                <p class="price">+NT$ 0</p>
-                                            </div>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        
                     </div>
 
                     <div class="right-side">
